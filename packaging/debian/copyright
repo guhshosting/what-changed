@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: what-changed
+Source: https://github.com/guhshosting/what-changed
+
+Files: *
+Copyright: 2026 GuhsHosting
+License: MIT
+ See /usr/share/common-licenses/MIT where available, or the included LICENSE.

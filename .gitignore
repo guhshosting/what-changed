@@ -1,0 +1,11 @@
+/build*/
+/manual-build/
+*.o
+*.a
+*.so
+*.deb
+*.rpm
+*.tar.gz
+*.json
+Testing/
+_CPack_Packages/

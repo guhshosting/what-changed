@@ -1,0 +1,47 @@
+.TH WHAT-CHANGED 1 "September 2026" "what-changed 1.0.0" "User Commands"
+.SH NAME
+what-changed \- capture and compare privacy-conscious Linux system snapshots
+.SH SYNOPSIS
+.B what-changed capture -o FILE
+[--category NAME] [--exclude NAME] [--track PATH] [--include-transient]
+.br
+.B what-changed compare BEFORE AFTER
+[--format text|json|markdown] [--include-transient]
+.br
+.B what-changed show FILE
+[--format text|json|markdown]
+.br
+.B what-changed validate FILE
+.br
+.B what-changed categories
+.SH DESCRIPTION
+Captures curated read-only observations and reports semantic differences. A reported change is not a claim of causality. Unavailable collection is not treated as removal.
+.SH PRIVACY
+Defaults omit hostnames, users, addresses, machine IDs, UUIDs, serials, secrets, environment variables, and configuration contents. Tracked regular files are represented by metadata and SHA-256. Symlinks are not followed. Snapshots are created mode 0600 and are never silently overwritten.
+.SH OPTIONS
+.TP
+.B -o, --output FILE
+New snapshot path.
+.TP
+.B --category NAME
+Include a category; repeatable.
+.TP
+.B --exclude NAME
+Exclude a category; repeatable.
+.TP
+.B --track PATH
+Track an absolute configuration path; repeatable.
+.TP
+.B --include-transient
+Capture or compare active systemd state, classified as contextual.
+.TP
+.B --format FORMAT
+text, json, or markdown.
+.SH EXIT STATUS
+0 success; 2 usage; 3 invalid snapshot; 4 filesystem failure; 5 collection/runtime failure.
+.SH FILES
+/etc/os-release, /var/lib/dpkg/status, systemd unit directories, /proc/self/mountinfo, selected /sys entries, APT/YUM repository files.
+.SH SECURITY
+No shell is invoked. Optional rpm and systemctl reads use fixed paths, fixed arguments, bounded output, and timeouts. Inspect snapshots before sharing.
+.SH AUTHORS
+GuhsHosting.

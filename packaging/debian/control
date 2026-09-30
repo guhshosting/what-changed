@@ -1,0 +1,15 @@
+Source: what-changed
+Section: utils
+Priority: optional
+Maintainer: GuhsHosting <guhshosting@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13), cmake, g++
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+Homepage: https://github.com/guhshosting/what-changed
+
+Package: what-changed
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: privacy-conscious Linux system change detector
+ Capture curated snapshots and compare observed package, service,
+ configuration, mount, hardware, repository, OS, and kernel changes.
